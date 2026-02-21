@@ -18,9 +18,10 @@ public static class DependencyInjection
         this IServiceCollection services,
         IConfiguration configuration)
     {
-        // EF Core + SQL Server
+        // EF Core + MySQL (Pomelo)
+        var connectionString = configuration.GetConnectionString("DefaultConnection");
         services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+            options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 31))));
 
         // ASP.NET Core Identity
         services.AddIdentity<ApplicationUser, IdentityRole>(options =>
