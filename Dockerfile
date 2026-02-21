@@ -3,19 +3,19 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Copy solution and project files
-COPY ["AuraIntima.Api/AuraIntima.Api.csproj", "AuraIntima.Api/"]
-COPY ["AuraIntima.Application/AuraIntima.Application.csproj", "AuraIntima.Application/"]
-COPY ["AuraIntima.Domain/AuraIntima.Domain.csproj", "AuraIntima.Domain/"]
-COPY ["AuraIntima.Infrastructure/AuraIntima.Infrastructure.csproj", "AuraIntima.Infrastructure/"]
+COPY ["Backend/AuraIntima.Api/AuraIntima.Api.csproj", "Backend/AuraIntima.Api/"]
+COPY ["Backend/AuraIntima.Application/AuraIntima.Application.csproj", "Backend/AuraIntima.Application/"]
+COPY ["Backend/AuraIntima.Domain/AuraIntima.Domain.csproj", "Backend/AuraIntima.Domain/"]
+COPY ["Backend/AuraIntima.Infrastructure/AuraIntima.Infrastructure.csproj", "Backend/AuraIntima.Infrastructure/"]
 
 # Restore dependencies
-RUN dotnet restore "AuraIntima.Api/AuraIntima.Api.csproj"
+RUN dotnet restore "Backend/AuraIntima.Api/AuraIntima.Api.csproj"
 
 # Copy everything else
 COPY . .
 
 # Build and publish
-WORKDIR "/src/AuraIntima.Api"
+WORKDIR "/src/Backend/AuraIntima.Api"
 RUN dotnet publish "AuraIntima.Api.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 # Runtime Stage
