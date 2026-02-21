@@ -10470,3 +10470,89 @@ ORDER BY `t`.`Key`
 2026-02-20 21:16:43.269 -05:00 [INF] Executed action AuraIntima.Api.Controllers.DashboardController.GetStats (AuraIntima.Api) in 146.8169ms
 2026-02-20 21:16:43.272 -05:00 [INF] Executed endpoint 'AuraIntima.Api.Controllers.DashboardController.GetStats (AuraIntima.Api)'
 2026-02-20 21:16:43.274 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5226/api/dashboard/stats - 200 null application/json; charset=utf-8 163.7263ms
+2026-02-20 21:23:22.381 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5226/api/products - null null
+2026-02-20 21:23:22.384 -05:00 [INF] CORS policy execution successful.
+2026-02-20 21:23:22.386 -05:00 [INF] Executing endpoint 'AuraIntima.Api.Controllers.ProductsController.GetAll (AuraIntima.Api)'
+2026-02-20 21:23:22.387 -05:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[AuraIntima.Application.DTOs.ProductDto]]] GetAll() on controller AuraIntima.Api.Controllers.ProductsController (AuraIntima.Api).
+2026-02-20 21:23:22.393 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`CategoryId`, `p`.`DeletedAt`, `p`.`Description`, `p`.`ImageUrl`, `p`.`IsAdultOnly`, `p`.`IsDeleted`, `p`.`Name`, `p`.`Price`, `p`.`Stock`, `t`.`Id`, `t`.`DeletedAt`, `t`.`IsDeleted`, `t`.`Name`
+FROM `Products` AS `p`
+INNER JOIN (
+    SELECT `c`.`Id`, `c`.`DeletedAt`, `c`.`IsDeleted`, `c`.`Name`
+    FROM `Categories` AS `c`
+    WHERE NOT (`c`.`IsDeleted`)
+) AS `t` ON `p`.`CategoryId` = `t`.`Id`
+WHERE NOT (`p`.`IsDeleted`)
+2026-02-20 21:23:22.397 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[AuraIntima.Domain.Entities.Product, AuraIntima.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[AuraIntima.Application.DTOs.ProductDto, AuraIntima.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-20 21:23:22.398 -05:00 [INF] Executed action AuraIntima.Api.Controllers.ProductsController.GetAll (AuraIntima.Api) in 7.9852ms
+2026-02-20 21:23:22.400 -05:00 [INF] Executed endpoint 'AuraIntima.Api.Controllers.ProductsController.GetAll (AuraIntima.Api)'
+2026-02-20 21:23:22.401 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5226/api/products - 200 null application/json; charset=utf-8 19.3895ms
+2026-02-20 21:23:26.203 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5226/api/products - null null
+2026-02-20 21:23:26.205 -05:00 [INF] CORS policy execution successful.
+2026-02-20 21:23:26.206 -05:00 [INF] Executing endpoint 'AuraIntima.Api.Controllers.ProductsController.GetAll (AuraIntima.Api)'
+2026-02-20 21:23:26.207 -05:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[AuraIntima.Application.DTOs.ProductDto]]] GetAll() on controller AuraIntima.Api.Controllers.ProductsController (AuraIntima.Api).
+2026-02-20 21:23:26.211 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`CategoryId`, `p`.`DeletedAt`, `p`.`Description`, `p`.`ImageUrl`, `p`.`IsAdultOnly`, `p`.`IsDeleted`, `p`.`Name`, `p`.`Price`, `p`.`Stock`, `t`.`Id`, `t`.`DeletedAt`, `t`.`IsDeleted`, `t`.`Name`
+FROM `Products` AS `p`
+INNER JOIN (
+    SELECT `c`.`Id`, `c`.`DeletedAt`, `c`.`IsDeleted`, `c`.`Name`
+    FROM `Categories` AS `c`
+    WHERE NOT (`c`.`IsDeleted`)
+) AS `t` ON `p`.`CategoryId` = `t`.`Id`
+WHERE NOT (`p`.`IsDeleted`)
+2026-02-20 21:23:26.213 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[AuraIntima.Domain.Entities.Product, AuraIntima.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[AuraIntima.Application.DTOs.ProductDto, AuraIntima.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-20 21:23:26.215 -05:00 [INF] Executed action AuraIntima.Api.Controllers.ProductsController.GetAll (AuraIntima.Api) in 6.0708ms
+2026-02-20 21:23:26.217 -05:00 [INF] Executed endpoint 'AuraIntima.Api.Controllers.ProductsController.GetAll (AuraIntima.Api)'
+2026-02-20 21:23:26.219 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5226/api/products - 200 null application/json; charset=utf-8 15.9111ms
+2026-02-20 21:23:39.411 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5226/api/products - null null
+2026-02-20 21:23:39.414 -05:00 [INF] CORS policy execution successful.
+2026-02-20 21:23:39.415 -05:00 [INF] Executing endpoint 'AuraIntima.Api.Controllers.ProductsController.GetAll (AuraIntima.Api)'
+2026-02-20 21:23:39.417 -05:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[AuraIntima.Application.DTOs.ProductDto]]] GetAll() on controller AuraIntima.Api.Controllers.ProductsController (AuraIntima.Api).
+2026-02-20 21:23:39.421 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`CategoryId`, `p`.`DeletedAt`, `p`.`Description`, `p`.`ImageUrl`, `p`.`IsAdultOnly`, `p`.`IsDeleted`, `p`.`Name`, `p`.`Price`, `p`.`Stock`, `t`.`Id`, `t`.`DeletedAt`, `t`.`IsDeleted`, `t`.`Name`
+FROM `Products` AS `p`
+INNER JOIN (
+    SELECT `c`.`Id`, `c`.`DeletedAt`, `c`.`IsDeleted`, `c`.`Name`
+    FROM `Categories` AS `c`
+    WHERE NOT (`c`.`IsDeleted`)
+) AS `t` ON `p`.`CategoryId` = `t`.`Id`
+WHERE NOT (`p`.`IsDeleted`)
+2026-02-20 21:23:39.425 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[AuraIntima.Domain.Entities.Product, AuraIntima.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[AuraIntima.Application.DTOs.ProductDto, AuraIntima.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-20 21:23:39.427 -05:00 [INF] Executed action AuraIntima.Api.Controllers.ProductsController.GetAll (AuraIntima.Api) in 6.439ms
+2026-02-20 21:23:39.428 -05:00 [INF] Executed endpoint 'AuraIntima.Api.Controllers.ProductsController.GetAll (AuraIntima.Api)'
+2026-02-20 21:23:39.429 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5226/api/products - 200 null application/json; charset=utf-8 18.2846ms
+2026-02-20 21:24:03.792 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5226/api/products - null null
+2026-02-20 21:24:03.795 -05:00 [INF] CORS policy execution successful.
+2026-02-20 21:24:03.796 -05:00 [INF] Executing endpoint 'AuraIntima.Api.Controllers.ProductsController.GetAll (AuraIntima.Api)'
+2026-02-20 21:24:03.798 -05:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[AuraIntima.Application.DTOs.ProductDto]]] GetAll() on controller AuraIntima.Api.Controllers.ProductsController (AuraIntima.Api).
+2026-02-20 21:24:03.800 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`CategoryId`, `p`.`DeletedAt`, `p`.`Description`, `p`.`ImageUrl`, `p`.`IsAdultOnly`, `p`.`IsDeleted`, `p`.`Name`, `p`.`Price`, `p`.`Stock`, `t`.`Id`, `t`.`DeletedAt`, `t`.`IsDeleted`, `t`.`Name`
+FROM `Products` AS `p`
+INNER JOIN (
+    SELECT `c`.`Id`, `c`.`DeletedAt`, `c`.`IsDeleted`, `c`.`Name`
+    FROM `Categories` AS `c`
+    WHERE NOT (`c`.`IsDeleted`)
+) AS `t` ON `p`.`CategoryId` = `t`.`Id`
+WHERE NOT (`p`.`IsDeleted`)
+2026-02-20 21:24:03.803 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[AuraIntima.Domain.Entities.Product, AuraIntima.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[AuraIntima.Application.DTOs.ProductDto, AuraIntima.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-20 21:24:03.804 -05:00 [INF] Executed action AuraIntima.Api.Controllers.ProductsController.GetAll (AuraIntima.Api) in 5.215ms
+2026-02-20 21:24:03.806 -05:00 [INF] Executed endpoint 'AuraIntima.Api.Controllers.ProductsController.GetAll (AuraIntima.Api)'
+2026-02-20 21:24:03.808 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5226/api/products - 200 null application/json; charset=utf-8 15.5768ms
+2026-02-20 21:24:10.047 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5226/api/products - null null
+2026-02-20 21:24:10.050 -05:00 [INF] CORS policy execution successful.
+2026-02-20 21:24:10.051 -05:00 [INF] Executing endpoint 'AuraIntima.Api.Controllers.ProductsController.GetAll (AuraIntima.Api)'
+2026-02-20 21:24:10.052 -05:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[AuraIntima.Application.DTOs.ProductDto]]] GetAll() on controller AuraIntima.Api.Controllers.ProductsController (AuraIntima.Api).
+2026-02-20 21:24:10.056 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`CategoryId`, `p`.`DeletedAt`, `p`.`Description`, `p`.`ImageUrl`, `p`.`IsAdultOnly`, `p`.`IsDeleted`, `p`.`Name`, `p`.`Price`, `p`.`Stock`, `t`.`Id`, `t`.`DeletedAt`, `t`.`IsDeleted`, `t`.`Name`
+FROM `Products` AS `p`
+INNER JOIN (
+    SELECT `c`.`Id`, `c`.`DeletedAt`, `c`.`IsDeleted`, `c`.`Name`
+    FROM `Categories` AS `c`
+    WHERE NOT (`c`.`IsDeleted`)
+) AS `t` ON `p`.`CategoryId` = `t`.`Id`
+WHERE NOT (`p`.`IsDeleted`)
+2026-02-20 21:24:10.059 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[AuraIntima.Domain.Entities.Product, AuraIntima.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[AuraIntima.Application.DTOs.ProductDto, AuraIntima.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-20 21:24:10.062 -05:00 [INF] Executed action AuraIntima.Api.Controllers.ProductsController.GetAll (AuraIntima.Api) in 7.0704ms
+2026-02-20 21:24:10.063 -05:00 [INF] Executed endpoint 'AuraIntima.Api.Controllers.ProductsController.GetAll (AuraIntima.Api)'
+2026-02-20 21:24:10.064 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5226/api/products - 200 null application/json; charset=utf-8 16.1517ms
+2026-02-20 21:25:55.026 -05:00 [INF] Application is shutting down...
