@@ -145,9 +145,23 @@ var app = builder.Build();
 // ───────────────────────────────────────────
 using (var scope = app.Services.CreateScope())
 {
-    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    await context.Database.MigrateAsync();
-    await DbInitializer.SeedAsync(scope.ServiceProvider);
+    var services = scope.ServiceProvider;
+    var logger = services.GetRequiredService<ILogger<Program>>();
+    try
+    {
+        var context = services.GetRequiredService<ApplicationDbContext>();
+        logger.LogInformation("Starting database migration...");
+        await context.Database.MigrateAsync();
+        logger.LogInformation("Database migration completed. Starting seeding...");
+        await DbInitializer.SeedAsync(services);
+        logger.LogInformation("Database seeding completed successfully.");
+    }
+    catch (Exception ex)
+    {
+        logger.LogError(ex, "An error occurred while migrating or seeding the database.");
+        // We don't rethrow here to allow the app to start even if DB is not ready,
+        // though most features will fail, we can at least check /health and Swagger.
+    }
 }
 
 // ───────────────────────────────────────────
