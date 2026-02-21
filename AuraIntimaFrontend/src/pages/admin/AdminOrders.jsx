@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ShoppingCart, Plus, Pencil, Trash2, X, CheckCircle, Package, MapPin, Calendar, DollarSign } from 'lucide-react';
-import API_BASE_URL from '../../config/api';
+import API_BASE_URL from '../../config/api_config';
 
 const API = `${API_BASE_URL}/orders`;
 

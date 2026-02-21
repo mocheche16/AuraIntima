@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { TrendingUp, DollarSign, ShoppingBag, Target, ArrowUpRight, ArrowDownRight, Award, Calendar } from 'lucide-react';
-import API_BASE_URL from '../../config/api';
+import API_BASE_URL from '../../config/api_config';
 
 const AdminSales = ({ currentToken }) => {
   const [data, setData] = useState(null);

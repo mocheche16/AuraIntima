@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useCart } from '../context/CartContext.jsx';
 import { CreditCard, Truck, CheckCircle, ArrowLeft, Loader2, ShieldCheck } from 'lucide-react';
 import axios from 'axios';
-import API_BASE_URL from '../config/api';
+import API_BASE_URL from '../config/api_config';
 
 const Checkout = ({ user, onBack }) => {
   const { cartItems, totalPrice, clearCart } = useCart();

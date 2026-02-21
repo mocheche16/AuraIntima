@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Package, Users, TrendingUp, ArrowRight, ShieldCheck } from 'lucide-react';
-import API_BASE_URL from '../../config/api';
+import API_BASE_URL from '../../config/api_config';
 
 const AdminOverview = ({ currentToken, onNavigate }) => {
   const [stats, setStats] = useState(null);

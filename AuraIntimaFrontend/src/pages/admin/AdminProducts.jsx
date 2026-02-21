@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { PlusCircle, Pencil, Trash2, CheckCircle, AlertCircle, X, Package } from 'lucide-react';
-import API_BASE_URL from '../../config/api';
+import API_BASE_URL from '../../config/api_config';
 
 const API = API_BASE_URL;
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { UserPlus, AlertCircle, CheckCircle } from 'lucide-react';
-import API_BASE_URL from '../config/api';
+import API_BASE_URL from '../config/api_config';
 
 const Register = ({ onLoginSuccess, onGoLogin }) => {
   const [form, setForm] = useState({ fullName: '', email: '', password: '', confirm: '' });
