@@ -33,7 +33,7 @@ public class DashboardController : ControllerBase
         // Top 5 Products by Quantity Sold
         var topProducts = await _context.OrderItems
             .Include(oi => oi.Product)
-            .GroupBy(oi => new { oi.ProductId, oi.Product.Name })
+            .GroupBy(oi => new { oi.ProductId, ProductName = oi.Product!.Name })
             .Select(g => new
             {
                 ProductId = g.Key.ProductId,
