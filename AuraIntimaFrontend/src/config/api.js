@@ -1,4 +1,7 @@
-const API_BASE_URL =
-  import.meta.env.VITE_API_URL || "http://localhost:5226/api";
+const API_BASE_URL = 
+  import.meta.env.VITE_API_URL || 
+  (window.location.hostname === "localhost" ? "http://localhost:5226/api" : "https://renewed-freedom-production.up.railway.app/api");
+
+console.log("Resolved API URL:", API_BASE_URL);
 
 export default API_BASE_URL;
