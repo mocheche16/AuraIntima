@@ -37,7 +37,7 @@ public class DashboardController : ControllerBase
             .Select(g => new
             {
                 ProductId = g.Key.ProductId,
-                ProductName = g.Key.Name,
+                ProductName = g.Key.ProductName,
                 TotalSold = g.Sum(oi => oi.Quantity),
                 Revenue = g.Sum(oi => oi.Quantity * oi.UnitPrice)
             })
