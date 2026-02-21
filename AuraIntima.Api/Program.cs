@@ -152,11 +152,11 @@ using (var scope = app.Services.CreateScope())
 // ───────────────────────────────────────────
 app.UseMiddleware<ExceptionMiddleware>();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Aura Íntima API v1"));
-}
+app.UseSwagger();
+app.UseSwaggerUI(c => {
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Aura Íntima API v1");
+    c.RoutePrefix = "swagger"; 
+});
 
 app.UseHttpsRedirection();
 app.UseCors("AuraIntimaPolicy");
