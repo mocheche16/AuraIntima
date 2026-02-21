@@ -1,0 +1,55 @@
+2026-02-21 09:25:16.023 -05:00 [INF] Starting database migration...
+2026-02-21 09:25:16.597 -05:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'OrderItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-02-21 09:25:20.995 -05:00 [ERR] An error occurred using the connection to database '' on server 'localhost'.
+2026-02-21 09:25:21.082 -05:00 [ERR] An error occurred while migrating or seeding the database.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call.
+ ---> MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 1063
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, MySqlConnection connection, Int64 startingTimestamp, ILoadBalancer loadBalancer, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 425
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int64 startingTimestamp, Activity activity, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 932
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int64 startingTimestamp, Activity activity, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 938
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 419
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.HistoryRepository.ExistsAsync(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+   at Program.<Main>$(String[] args) in D:\Desarrollo\CSharp\AuraIntima\Backend\AuraIntima.Api\Program.cs:line 154
+2026-02-21 09:25:21.414 -05:00 [INF] User profile is available. Using 'C:\Users\Mocheche\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-21 09:25:21.714 -05:00 [INF] Now listening on: https://localhost:7239
+2026-02-21 09:25:21.717 -05:00 [INF] Now listening on: http://localhost:5226
+2026-02-21 09:25:21.821 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-21 09:25:21.824 -05:00 [INF] Hosting environment: Development
+2026-02-21 09:25:21.825 -05:00 [INF] Content root path: D:\Desarrollo\CSharp\AuraIntima\Backend\AuraIntima.Api
+2026-02-21 09:25:22.301 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7239/swagger - null null
+2026-02-21 09:25:22.457 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7239/swagger - 301 null null 167.9062ms
+2026-02-21 09:25:22.461 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7239/swagger/index.html - null null
+2026-02-21 09:25:22.520 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7239/swagger/index.html - 200 null text/html;charset=utf-8 58.8186ms
+2026-02-21 09:25:22.541 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7239/swagger/swagger-ui.css - null null
+2026-02-21 09:25:22.541 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7239/swagger/swagger-ui-bundle.js - null null
+2026-02-21 09:25:22.541 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7239/swagger/swagger-ui-standalone-preset.js - null null
+2026-02-21 09:25:22.573 -05:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2026-02-21 09:25:22.578 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7239/swagger/swagger-ui.css - 200 144929 text/css 37.5848ms
+2026-02-21 09:25:22.584 -05:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2026-02-21 09:25:22.586 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7239/swagger/swagger-ui-standalone-preset.js - 200 312163 text/javascript 45.2945ms
+2026-02-21 09:25:22.601 -05:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2026-02-21 09:25:22.602 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7239/swagger/swagger-ui-bundle.js - 200 1061536 text/javascript 61.2413ms
+2026-02-21 09:25:22.726 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7239/_vs/browserLink - null null
+2026-02-21 09:25:22.726 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7239/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-21 09:25:22.748 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7239/_framework/aspnetcore-browser-refresh.js - 200 16513 application/javascript; charset=utf-8 21.8433ms
+2026-02-21 09:25:22.830 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7239/_vs/browserLink - 200 null text/javascript; charset=UTF-8 103.7861ms
+2026-02-21 09:25:23.130 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7239/swagger/v1/swagger.json - null null
+2026-02-21 09:25:23.221 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7239/swagger/favicon-32x32.png - null null
+2026-02-21 09:25:23.303 -05:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2026-02-21 09:25:23.306 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7239/swagger/favicon-32x32.png - 200 628 image/png 85.4422ms
+2026-02-21 09:25:23.348 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7239/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 217.7352ms

@@ -1,3 +1,7 @@
 <Solution>
-  <Project Path="AuraIntima.Tests/AuraIntima.Tests.csproj" />
+  <Project Path="Backend/AuraIntima.Api/AuraIntima.Api.csproj" />
+  <Project Path="Backend/AuraIntima.Application/AuraIntima.Application.csproj" />
+  <Project Path="Backend/AuraIntima.Domain/AuraIntima.Domain.csproj" />
+  <Project Path="Backend/AuraIntima.Infrastructure/AuraIntima.Infrastructure.csproj" />
+  <Project Path="Backend/AuraIntima.Tests/AuraIntima.Tests.csproj" />
 </Solution>
