@@ -1,15 +1,47 @@
 using AuraIntima.Infrastructure.Identity;
+using AuraIntima.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 
 namespace AuraIntima.Infrastructure.Data;
 
 public static class DbInitializer
 {
+    public static async Task SeedAsync(IServiceProvider serviceProvider)
+    {
+        var logger = serviceProvider.GetRequiredService<ILogger<ApplicationUser>>();
+        try
+        {
+            var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
             var context = serviceProvider.GetRequiredService<ApplicationDbContext>();
 
-            // Categories
+            // 1. Roles
+            string[] roles = ["Admin", "User", "Invitado"];
+            foreach (var role in roles)
+            {
+                if (!await roleManager.RoleExistsAsync(role))
+                    await roleManager.CreateAsync(new IdentityRole(role));
+            }
+
+            // 2. Admin User
+            const string adminEmail = "admin@auraintima.com";
+            if (await userManager.FindByEmailAsync(adminEmail) is null)
+            {
+                var adminUser = new ApplicationUser
+                {
+                    UserName  = adminEmail,
+                    Email     = adminEmail,
+                    FullName  = "Administrador"
+                };
+                var result = await userManager.CreateAsync(adminUser, "Admin@12345");
+                if (result.Succeeded)
+                    await userManager.AddToRoleAsync(adminUser, "Admin");
+            }
+
+            // 3. Categories
             if (!context.Categories.Any())
             {
                 context.Categories.AddRange(
@@ -20,12 +52,12 @@ public static class DbInitializer
                 await context.SaveChangesAsync();
             }
 
-            // Products
+            // 4. Products
             if (!context.Products.Any())
             {
-                var lenceria = context.Categories.First(c => c.Name == "Lencería");
-                var accesorios = context.Categories.First(c => c.Name == "Accesorios");
-                var cuidado = context.Categories.First(c => c.Name == "Cuidado Personal");
+                var lenceria = await context.Categories.FirstAsync(c => c.Name == "Lencería");
+                var accesorios = await context.Categories.FirstAsync(c => c.Name == "Accesorios");
+                var cuidado = await context.Categories.FirstAsync(c => c.Name == "Cuidado Personal");
 
                 context.Products.AddRange(
                     new Product 
@@ -82,7 +114,7 @@ public static class DbInitializer
                 await context.SaveChangesAsync();
             }
 
-            logger.LogInformation("Database seeded successfully with products.");
+            logger.LogInformation("Database seeded successfully with users and products.");
         }
         catch (Exception ex)
         {
