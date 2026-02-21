@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { PlusCircle, Pencil, Trash2, CheckCircle, AlertCircle, X, Package } from 'lucide-react';
+import API_BASE_URL from '../../config/api';
 
-const API = 'http://localhost:5226/api';
+const API = API_BASE_URL;
 
 const emptyProduct = { name: '', description: '', price: '', stock: '', imageUrl: '', isAdultOnly: false, categoryId: 1 };
 

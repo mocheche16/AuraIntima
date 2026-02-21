@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ProductCard from '../components/ProductCard.jsx';
+import API_BASE_URL from '../config/api';
 
 const Catalog = () => {
   const [products, setProducts] = useState([]);
@@ -10,8 +11,7 @@ const Catalog = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        // La API está en http://localhost:5226 (según logs anteriores)
-        const response = await axios.get('http://localhost:5226/api/products');
+        const response = await axios.get(`${API_BASE_URL}/products`);
         setProducts(response.data);
       } catch (err) {
         console.error('Error fetching products:', err);

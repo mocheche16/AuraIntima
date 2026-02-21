@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { UserPlus, Pencil, Trash2, Shield, User, X, CheckCircle, AlertCircle } from 'lucide-react';
+import API_BASE_URL from '../../config/api';
 
-const API = 'http://localhost:5226/api/users';
+const API = `${API_BASE_URL}/users`;
 
 const emptyUser = { fullName: '', email: '', password: '', roles: ['User'] };
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { TrendingUp, DollarSign, ShoppingBag, Target, ArrowUpRight, ArrowDownRight, Award, Calendar } from 'lucide-react';
+import API_BASE_URL from '../../config/api';
 
 const AdminSales = ({ currentToken }) => {
   const [data, setData] = useState(null);
@@ -9,7 +10,7 @@ const AdminSales = ({ currentToken }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('http://localhost:5226/api/dashboard/stats', {
+        const res = await axios.get(`${API_BASE_URL}/dashboard/stats`, {
           headers: { Authorization: `Bearer ${currentToken}` }
         });
         setData(res.data);

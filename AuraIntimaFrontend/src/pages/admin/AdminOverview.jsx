@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Package, Users, TrendingUp, ArrowRight, ShieldCheck } from 'lucide-react';
+import API_BASE_URL from '../../config/api';
 
 const AdminOverview = ({ currentToken, onNavigate }) => {
   const [stats, setStats] = useState(null);
@@ -9,7 +10,7 @@ const AdminOverview = ({ currentToken, onNavigate }) => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const res = await axios.get('http://localhost:5226/api/dashboard/stats', {
+        const res = await axios.get(`${API_BASE_URL}/dashboard/stats`, {
           headers: { Authorization: `Bearer ${currentToken}` }
         });
         setStats(res.data);

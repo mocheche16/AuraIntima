@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useCart } from '../context/CartContext.jsx';
 import { CreditCard, Truck, CheckCircle, ArrowLeft, Loader2, ShieldCheck } from 'lucide-react';
 import axios from 'axios';
+import API_BASE_URL from '../config/api';
 
 const Checkout = ({ user, onBack }) => {
   const { cartItems, totalPrice, clearCart } = useCart();
@@ -35,7 +36,7 @@ const Checkout = ({ user, onBack }) => {
         };
 
         const config = user ? { headers: { Authorization: `Bearer ${user.token}` } } : {};
-        await axios.post('http://localhost:5226/api/orders', orderData, config);
+        await axios.post(`${API_BASE_URL}/orders`, orderData, config);
 
         setStep(3);
         clearCart();

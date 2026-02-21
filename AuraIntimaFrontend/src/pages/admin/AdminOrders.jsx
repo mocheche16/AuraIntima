@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ShoppingCart, Plus, Pencil, Trash2, X, CheckCircle, Package, MapPin, Calendar, DollarSign } from 'lucide-react';
+import API_BASE_URL from '../../config/api';
 
-const API = 'http://localhost:5226/api/orders';
+const API = `${API_BASE_URL}/orders`;
 
 const emptyOrder = { userId: 'GUEST', shippingAddress: '', totalAmount: 0, orderItems: [] };
 
@@ -22,7 +23,7 @@ const AdminOrders = ({ currentToken }) => {
     try {
       const [ordRes, prodRes] = await Promise.all([
         axios.get(API, { headers }),
-        axios.get('http://localhost:5226/api/products')
+        axios.get(`${API_BASE_URL}/products`)
       ]);
       setOrders(ordRes.data);
       setProducts(prodRes.data);

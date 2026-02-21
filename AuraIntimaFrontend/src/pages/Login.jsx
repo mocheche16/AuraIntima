@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { LogIn, User, Lock, AlertCircle } from 'lucide-react';
+import API_BASE_URL from '../config/api';
 
 const Login = ({ onLoginSuccess, onGoRegister }) => {
   const [credentials, setCredentials] = useState({ email: '', password: '' });
@@ -18,7 +19,7 @@ const Login = ({ onLoginSuccess, onGoRegister }) => {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:5226/api/auth/login', credentials);
+      const response = await axios.post(`${API_BASE_URL}/auth/login`, credentials);
       const { token, fullName, email, roles } = response.data;
       
       // Persistir sesión

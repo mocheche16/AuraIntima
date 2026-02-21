@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { UserPlus, AlertCircle, CheckCircle } from 'lucide-react';
+import API_BASE_URL from '../config/api';
 
 const Register = ({ onLoginSuccess, onGoLogin }) => {
   const [form, setForm] = useState({ fullName: '', email: '', password: '', confirm: '' });
@@ -18,7 +19,7 @@ const Register = ({ onLoginSuccess, onGoLogin }) => {
     setLoading(true);
     setStatus({ type: 'info', message: 'Registrando...' });
     try {
-      const res = await axios.post('http://localhost:5226/api/auth/register', {
+      const res = await axios.post(`${API_BASE_URL}/auth/register`, {
         fullName: form.fullName,
         email: form.email,
         password: form.password
