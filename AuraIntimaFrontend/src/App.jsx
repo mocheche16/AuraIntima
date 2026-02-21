@@ -36,6 +36,9 @@ function App() {
   return (
     <CartProvider>
       <div className="App">
+        <div style={{ background: '#facc15', color: '#000', textAlign: 'center', fontSize: '0.7rem', fontWeight: 'bold', padding: '0.2rem' }}>
+          VERSIÓN: 1.0.2-CLOUD | API: auraintima-production
+        </div>
         <Navbar
           onViewChange={setView}
           user={user}
@@ -99,7 +102,7 @@ function App() {
               AURA ÍNTIMA
             </p>
             <p style={{ fontSize: '0.8rem', opacity: 0.5 }}>
-              &copy; 2026 Boutique E-commerce. Todos los derechos reservados.
+              &copy; 2026 Boutique E-commerce. Todos los derechos reservados. | v1.0.1-prod
             </p>
           </div>
         </footer>
