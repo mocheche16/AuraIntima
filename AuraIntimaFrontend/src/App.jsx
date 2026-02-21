@@ -36,8 +36,8 @@ function App() {
   return (
     <CartProvider>
       <div className="App">
-        <div style={{ background: '#facc15', color: '#000', textAlign: 'center', fontSize: '0.7rem', fontWeight: 'bold', padding: '0.2rem' }}>
-          VERSIÓN: 1.0.2-CLOUD | API: auraintima-production
+        <div style={{ background: '#ef4444', color: '#fff', textAlign: 'center', fontSize: '0.9rem', fontWeight: 'bold', padding: '0.5rem', borderBottom: '4px solid #fff' }}>
+          🚨 ALERTA DE CACHÉ: SI VES ESTO, ESTÁS EN LA VERSIÓN NUEVA (1.0.3-HARDCODED) 🚨
         </div>
         <Navbar
           onViewChange={setView}
