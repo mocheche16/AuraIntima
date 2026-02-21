@@ -144,6 +144,8 @@ var app = builder.Build();
 // ───────────────────────────────────────────
 using (var scope = app.Services.CreateScope())
 {
+    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    await context.Database.MigrateAsync();
     await DbInitializer.SeedAsync(scope.ServiceProvider);
 }
 
